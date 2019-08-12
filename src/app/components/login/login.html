@@ -1,0 +1,30 @@
+<form [formGroup]="loginForm" (ngSubmit)="enviarDados()">
+  <div class="login" text-center>
+    <div class="login-text">
+      <span> Login </span>
+    </div>
+    <ion-item lines="none">
+      <ion-input
+        formControlName="email"
+        type="email"
+        placeholder="email"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        type="password"
+        formControlName="senha"
+        placeholder="senha"
+      ></ion-input>
+    </ion-item>
+
+    <button class="botao" ion-button round [disabled]="!loginForm.valid">
+      Entrar
+    </button>
+  </div>
+</form>
+
+<div class="senha">
+  <a href="google.com">Esqueci minha senha</a>
+</div>

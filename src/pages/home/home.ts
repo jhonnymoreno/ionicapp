@@ -1,20 +1,21 @@
-import { Component, ViewChild, OnInit } from "@angular/core";
-import { escapeIdentifier } from "@angular/compiler/src/output/abstract_emitter";
+import { Component, ViewChild } from "@angular/core";
 import { Slides } from "ionic-angular";
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage {
-  @ViewChild(Slides) slides: Slides;
-
+  @ViewChild("slider") slides: Slides;
+  event = "";
   constructor() {}
 
   ngOnInit() {}
 
-  segmentChange(event: any) {
-    if (event.detail.value === "login") {
-      this.slides.getPreviousIndex();
-    } else this.slides.getActiveIndex();
+  segmentChange() {
+    console.log("event", event);
+
+    if (this.event === "login") {
+      this.slides.slideTo(0, 500);
+    } else this.slides.slideTo(1, 500);
   }
 }

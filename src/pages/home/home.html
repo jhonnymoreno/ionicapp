@@ -1,55 +1,21 @@
 <ion-content>
   <div class="container">
-    <ion-segment (ionChange)="segmentChange($event)" value="login">
-      <ion-segment-button value="login">
+    <ion-segment [(ngModel)]="event">
+      <ion-segment-button value="login" (click)="segmentChange()">
         <ion-label> Login </ion-label>
       </ion-segment-button>
-      <ion-segment-button value="registro">
+      <ion-segment-button value="registro" (click)="segmentChange()">
         <ion-label> Cadastro </ion-label>
       </ion-segment-button>
     </ion-segment>
   </div>
 
-  <ion-slides>
+  <ion-slides #slider>
     <ion-slide>
-      <div class="login" text-center>
-        <div class="login-text">
-          <span> Login </span>
-        </div>
-        <ion-item lines="none">
-          <ion-input type="email" placeholder="email"></ion-input>
-        </ion-item>
-
-        <ion-item lines="none">
-          <ion-input type="password" placeholder="senha"></ion-input>
-        </ion-item>
-
-        <button class="botao" ion-button round>Entrar</button>
-      </div>
-
-      <div class="senha">
-        <a href="google.com">Esqueci minha senha</a>
-      </div>
+      <login></login>
     </ion-slide>
-
     <ion-slide>
-      <div class="cadastro">
-        <span>Cadastro</span>
-
-        <ion-item class="ion-margin-top" lines="none">
-          <ion-input type="name" placeholder="nome"></ion-input>
-        </ion-item>
-
-        <ion-item class="ion-margin-top" lines="none">
-          <ion-input type="email" placeholder="email"></ion-input>
-        </ion-item>
-
-        <ion-item class="ion-margin-top" lines="none">
-          <ion-input type="password" placeholder="senha"></ion-input>
-        </ion-item>
-
-        <button class="botao-pronto" ion-button round>Cadastrar</button>
-      </div>
+      <registro></registro>
     </ion-slide>
   </ion-slides>
 </ion-content>

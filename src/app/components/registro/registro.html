@@ -1,0 +1,43 @@
+<form [formGroup]="cadastroForm" (ngSubmit)="enviarDados()">
+  <div class="cadastro">
+    <span>Cadastro</span>
+
+    <ion-item class="ion-margin-top" lines="none">
+      <ion-input
+        formControlName="nome"
+        type="name"
+        placeholder="nome"
+      ></ion-input>
+    </ion-item>
+    <!-- TO DO -> Validação dos campos -->
+    <!-- <div class="error" *ngIf="!cadastroForm.nome">
+      <span>bla</span>
+    </div> -->
+
+    <ion-item class="ion-margin-top" lines="none">
+      <ion-input
+        formControlName="email"
+        type="email"
+        placeholder="email"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-top" lines="none">
+      <ion-input
+        formControlName="senha"
+        type="password"
+        placeholder="senha"
+      ></ion-input>
+    </ion-item>
+
+    <button
+      (click)="presentToast()"
+      [disabled]="!cadastroForm.valid"
+      class="botao-pronto"
+      ion-button
+      round
+    >
+      Cadastrar
+    </button>
+  </div>
+</form>
