@@ -11,16 +11,28 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from "./components/login/login.component";
 import { RegistroComponent } from "./components/registro/registro.component";
+import { MovieProvider } from '../providers/movie/movie';
+import { PopularMoviePageModule } from "../pages/popular-movie/popular-movie.module";
+import { MovieDetailPageModule } from "../pages/movie-detail/movie-detail.module";
+import { HttpModule } from "@angular/http";
 
 @NgModule({
   declarations: [MyApp, HomePage, LoginComponent, TabsPage, RegistroComponent],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp), ReactiveFormsModule],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(MyApp), 
+    ReactiveFormsModule,
+    PopularMoviePageModule,
+    MovieDetailPageModule,
+    HttpModule
+  ],
   bootstrap: [IonicApp],
   entryComponents: [MyApp, HomePage, TabsPage],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    MovieProvider
   ]
 })
 export class AppModule {}
